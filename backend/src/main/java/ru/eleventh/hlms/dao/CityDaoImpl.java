@@ -57,7 +57,7 @@ public class CityDaoImpl implements CityDao {
         val transaction = session.getTransaction();
 
         transaction.begin();
-        list.forEach(session::save);
+        list.forEach(session::persist);
         transaction.commit();
         session.close();
     }
