@@ -77,12 +77,12 @@ public class CityDaoImpl implements CityDao {
 
     public Long count() {
         val session = sessionFactory.openSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery<Long> cr = cb.createQuery(Long.class);
-        val root = cr.from(City.class);
-        cr.select(cb.count(root));
+        val сriteriaBuilder = session.getCriteriaBuilder();
+        val criteriaQuery = сriteriaBuilder.createQuery(Long.class);
+        val root = criteriaQuery.from(City.class);
+        criteriaQuery.select(сriteriaBuilder.count(root));
 
-        val result = session.createQuery(cr).getSingleResult();
+        val result = session.createQuery(criteriaQuery).getSingleResult();
         session.close();
         return result;
     }
